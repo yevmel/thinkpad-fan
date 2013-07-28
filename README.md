@@ -4,6 +4,7 @@ thinkpad-fan
 DESCRIPTION
 -----
 simple daemon for controlling the fan on thinkpad notebooks. tested on E130.
+
 by the way... there is a more established project called thinkfan. checkout your distributions repository if interested.
 
 CONFIGURATION
