@@ -49,7 +49,7 @@ typedef struct _config_item {
 
 config_item config[] = {
 	{0,  55, 4},
-	{47, 59, 3},
+	{49, 59, 3},
 	{55, 63, 3},
 	{59, 67, 2},
 	{63, 71, 2},
