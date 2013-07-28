@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <signal.h>
+#include "config.h"
 
 #define FILE_PID "/var/run/thinkpad-fan.pid"
 #define FILE_TEMP "/proc/acpi/ibm/thermal"
 #define FILE_FAN "/proc/acpi/ibm/fan"
 #define INITIAL_LEVEL 1
-#define DEBUG
 
 int running = 1;
 
@@ -59,6 +59,10 @@ config_item config[] = {
 };
 
 int main() {
+#ifdef VERBOSE
+	fprintf(stdout, "running a VERBOSE build.\n");
+#endif
+
 	FILE *pidfile = fopen(FILE_PID, "r");
 	if (pidfile != NULL) {
 		fprintf(stderr, "file already exists \"%s\". already running?\n", FILE_PID);
@@ -94,7 +98,7 @@ int main() {
 		int min = config[current_level].min;
 		int max = config[current_level].max;
 
-#ifdef DEBUG
+#ifdef VERBOSE
 		int old_level = current_level;
 #endif
 
@@ -104,7 +108,7 @@ int main() {
 			current_level--;
 		}
 
-#ifdef DEBUG
+#ifdef VERBOSE
 		if (current_level != old_level) {
 			fprintf(stdout, "switching from level %d to level %d (cpu_temp=%d).\n", old_level, current_level, cpu_temp);
 		}
