@@ -1,0 +1,10 @@
+[Unit]
+Description=simple fan controll for thinkpad notebooks.
+
+[Service]
+ExecStart=/usr/bin/thinkpad-fan
+WorkingDirectory=/tmp
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
