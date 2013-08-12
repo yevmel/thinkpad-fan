@@ -26,4 +26,6 @@ config[] = {
 
 BUILD
 -----
-cmake && make && sudo make install
+    cmake
+    make
+    sudo make install
